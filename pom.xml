@@ -1,64 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>org.sonatype.oss</groupId>
-        <artifactId>oss-parent</artifactId>
-        <version>7</version>
-    </parent>
+	<parent>
+		<groupId>org.sonatype.oss</groupId>
+		<artifactId>oss-parent</artifactId>
+		<version>7</version>
+	</parent>
 
-    <packaging>jar</packaging>
-    <groupId>org.webjars</groupId>
-    <artifactId>webjars-taglib</artifactId>
-    <version>0.1-SNAPSHOT</version>
-    <name>webjars-taglib</name>
-    <description>WebJar TagLib</description>
-    <url>http://webjars.org</url>
+	<packaging>jar</packaging>
+	<groupId>org.webjars</groupId>
+	<artifactId>webjars-taglib</artifactId>
+	<version>0.1-SNAPSHOT</version>
+	<name>webjars-taglib</name>
+	<description>WebJar TagLib</description>
+	<url>http://webjars.org</url>
 
-    <licenses>
-        <license>
-            <name>None</name>
-            <url>http://webjars.org</url>
-            <distribution>repo</distribution>
-        </license>
-    </licenses>
+	<licenses>
+		<license>
+			<name>None</name>
+			<url>http://webjars.org</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
 
-    <scm>
-        <url>http://github.com/webjars/webjars-taglib</url>
-        <connection>scm:git:https://github.com/webjars/webjars-taglib.git</connection>
-        <developerConnection>scm:git:https://github.com/webjars/webjars-taglib.git</developerConnection>
-        <tag>HEAD</tag>
-    </scm>
+	<scm>
+		<url>http://github.com/webjars/webjars-taglib</url>
+		<connection>scm:git:https://github.com/webjars/webjars-taglib.git</connection>
+		<developerConnection>scm:git:https://github.com/webjars/webjars-taglib.git</developerConnection>
+		<tag>HEAD</tag>
+	</scm>
 
-    <developers>
-        <developer>
-            <id>jamesward</id>
-            <name>James Ward</name>
-            <email>james@jamesward.org</email>
-        </developer>
-    </developers>
+	<developers>
+		<developer>
+			<id>jamesward</id>
+			<name>James Ward</name>
+			<email>james@jamesward.org</email>
+		</developer>
+	</developers>
 
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.webjars</groupId>
-            <artifactId>webjars-locator</artifactId>
-            <version>0.1</version>
-        </dependency>
-    </dependencies>
-    
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-release-plugin</artifactId>
-                <version>2.3.2</version>
-            </plugin>
-        </plugins>
-    </build>
+	<dependencies>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>webjars-locator</artifactId>
+			<version>0.3</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>jsp-api</artifactId>
+			<version>2.1</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>1.9.5</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.3</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.3.2</version>
+			</plugin>
+		</plugins>
+	</build>
 
 </project>
