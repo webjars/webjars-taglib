@@ -175,7 +175,7 @@ public class LocateTagTest {
 				assertEquals(IterationTag.EVAL_BODY_AGAIN,
 						locateTag.doAfterBody());
 			} else {
-				assertEquals(Tag.EVAL_PAGE, locateTag.doAfterBody());
+				assertEquals(Tag.SKIP_BODY, locateTag.doAfterBody());
 			}
 		}
 		assertEquals(Tag.EVAL_PAGE, locateTag.doEndTag());

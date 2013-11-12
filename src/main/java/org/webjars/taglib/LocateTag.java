@@ -103,7 +103,7 @@ public class LocateTag extends TagSupport {
 
 	@Override
 	public int doAfterBody() throws JspException {
-		return emitOne() ? EVAL_BODY_AGAIN : EVAL_PAGE;
+		return emitOne() ? EVAL_BODY_AGAIN : SKIP_BODY;
 	}
 
 	@Override
