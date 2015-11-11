@@ -39,6 +39,15 @@ public class LocateTag extends TagSupport {
 	private Iterator<String> result;
 
 	/**
+	 * Whether the path we're looking for do not specify the version number.
+	 *
+	 * <p>
+	 * Default is {@literal false}.
+	 * </p>
+	*/
+	private boolean versionAgnostic = false;
+
+	/**
 	 * Whether to remove the resource extension before returning the result.
 	 * Useful <i>e.g.</> for <a href="http://requirejs.org/">require.js</a>.
 	 * 
@@ -126,8 +135,15 @@ public class LocateTag extends TagSupport {
 		}
 
 		if (path != null) {
+			int pos = path.indexOf("/");
+			if (versionAgnostic && pos != -1) {
+				result = Collections.singletonList(assetLocator.getFullPath(
+						path.substring(0, pos), path.substring(pos + 1)))
+						.iterator();
+			} else {
 			result = Collections
 					.singletonList(assetLocator.getFullPath(path)).iterator();
+			}
 		} else {
 			result = assetLocator.listAssets(prefix).iterator();
 		}
@@ -160,6 +176,10 @@ public class LocateTag extends TagSupport {
 		}
 	}
 
+    public boolean getVersionAgnostic() {
+        return versionAgnostic;
+    }
+
 	public boolean getOmitExtension() {
 		return omitExtension;
 	}
@@ -186,6 +206,7 @@ public class LocateTag extends TagSupport {
 		this.prefix = null;
 		this.var = null;
 		this.relativeTo = WebJarAssetLocator.WEBJARS_PATH_PREFIX;
+		this.versionAgnostic = false;
 		this.omitExtension = false;
 		if (result.hasNext()) {
 			throw new IllegalStateException(
@@ -194,6 +215,10 @@ public class LocateTag extends TagSupport {
 		}
 		this.result = null;
 	}
+
+    public void setVersionAgnostic(boolean versionAgnostic) {
+        this.versionAgnostic = versionAgnostic;
+    }
 
 	public void setOmitExtension(boolean omitExtension) {
 		this.omitExtension = omitExtension;

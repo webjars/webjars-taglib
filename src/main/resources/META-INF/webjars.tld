@@ -52,6 +52,13 @@
 			<rtexprvalue>true</rtexprvalue>
 		</attribute>
 		<attribute>
+			<description>Whether the path we're looking for do not specify the version number. 
+Default is false.</description>
+			<name>versionAgnostic</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
 			<description>Whether to remove the resource extension before returning the result.
 Useful e.g. for require.js. Default is false.</description>
 			<name>omitExtension</name>
