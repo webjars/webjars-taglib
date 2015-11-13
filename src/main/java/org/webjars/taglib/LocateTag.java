@@ -135,9 +135,12 @@ public class LocateTag extends TagSupport {
 		}
 
 		if (path != null) {
-			int pos = path.indexOf("/");
-			if (versionAgnostic && pos != -1) {
-				result = Collections.singletonList(assetLocator.getFullPath(
+			if (versionAgnostic) {
+		        if (path.charAt(0) == '/') {
+		        	path = path.substring(1);
+		        }
+				int pos = path.indexOf("/");
+				result = Collections.singletonList(assetLocator.getFullPathExact(
 						path.substring(0, pos), path.substring(pos + 1)))
 						.iterator();
 			} else {
