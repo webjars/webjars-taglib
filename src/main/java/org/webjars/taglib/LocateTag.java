@@ -44,6 +44,7 @@ public class LocateTag extends TagSupport {
 	 * <p>
 	 * Default is {@literal false}.
 	 * </p>
+	 * @since 0.3
 	*/
 	private boolean versionAgnostic = false;
 

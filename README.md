@@ -57,3 +57,14 @@ The default behavior is to remove the `META-INF/resources/webjars` prefix from r
 will output something like
 
 	/webjars/bootstrap/2.3.1/css/bootstrap
+	
+## Making dependencies version agnostic
+Since version 0.3, it is possible to reference resources contained in any WebJar (such as javascript and css files) without specifying the version number. To do so, you may reference a WebJar asset in your JSP like this:
+
+	<wj:locate path="bootstrap/css/bootstrap.css" versionAgnostic="true" />
+
+will output something like
+
+	/bootstrap/2.3.1/css/bootstrap.css
+
+Be sure to remove **ONLY** the version from the path, otherwise relative imports may not work.
