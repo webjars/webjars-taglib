@@ -39,7 +39,7 @@ public class LocateTag extends TagSupport {
 	private Iterator<String> result;
 
 	/**
-	 * Whether the path we're looking for do not specify the version number.
+	 * Whether the path we're looking for does not contain the version number.
 	 *
 	 * <p>
 	 * Default is {@literal false}.
