@@ -52,7 +52,7 @@
 			<rtexprvalue>true</rtexprvalue>
 		</attribute>
 		<attribute>
-			<description>Whether the path we're looking for does not contain the version number. 
+			<description>Whether version information should be automatically added by this tag. 
 Default is false.</description>
 			<name>versionAgnostic</name>
 			<required>false</required>
