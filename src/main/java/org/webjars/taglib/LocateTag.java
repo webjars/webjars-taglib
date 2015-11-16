@@ -1,10 +1,8 @@
 package org.webjars.taglib;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
-import java.util.List;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.PageContext;
@@ -39,14 +37,12 @@ public class LocateTag extends TagSupport {
 	private Iterator<String> result;
 
 	/**
-	 * Whether version information should be automatically added by this tag.
+	 * The id of the WebJar to search. If specified the path must be the exact
+	 * path of the file within the WebJar.
 	 *
-	 * <p>
-	 * Default is {@literal false}.
-	 * </p>
 	 * @since 0.3
-	*/
-	private boolean versionAgnostic = false;
+	 */
+	private String webjar;
 
 	/**
 	 * Whether to remove the resource extension before returning the result.
@@ -136,13 +132,9 @@ public class LocateTag extends TagSupport {
 		}
 
 		if (path != null) {
-			if (versionAgnostic) {
-				if (path.charAt(0) == '/') {
-					path = path.substring(1);
-				}
-				int pos = path.indexOf("/");
-				result = Collections.singletonList(assetLocator.getFullPathExact(
-						path.substring(0, pos), path.substring(pos + 1)))
+			if (webjar != null) {
+				result = Collections
+						.singletonList(assetLocator.getFullPathExact(webjar, path))
 						.iterator();
 			} else {
 				result = Collections
@@ -180,8 +172,8 @@ public class LocateTag extends TagSupport {
 		}
 	}
 
-	public boolean getVersionAgnostic() {
-		return versionAgnostic;
+	public String getWebjar() {
+		return webjar;
 	}
 
 	public boolean getOmitExtension() {
@@ -210,7 +202,7 @@ public class LocateTag extends TagSupport {
 		this.prefix = null;
 		this.var = null;
 		this.relativeTo = WebJarAssetLocator.WEBJARS_PATH_PREFIX;
-		this.versionAgnostic = false;
+		this.webjar = null;
 		this.omitExtension = false;
 		if (result.hasNext()) {
 			throw new IllegalStateException(
@@ -220,9 +212,9 @@ public class LocateTag extends TagSupport {
 		this.result = null;
 	}
 
-    public void setVersionAgnostic(boolean versionAgnostic) {
-        this.versionAgnostic = versionAgnostic;
-    }
+	public void setWebjar(String webjar) {
+		this.webjar = webjar;
+	}
 
 	public void setOmitExtension(boolean omitExtension) {
 		this.omitExtension = omitExtension;

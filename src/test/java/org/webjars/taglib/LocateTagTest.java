@@ -158,15 +158,15 @@ public class LocateTagTest {
 	}
 	
 	@Test
-	public void test_version_agnostic_resolution() 
+	public void test_webjar() 
 			throws Exception {
 
 		when(mockAssetLocator.getFullPathExact("bootstrap" , "css/bootstrap.css")).thenReturn(
 				"META-INF/resources/webjars/bootstrap/2.3.1/css/bootstrap.css");
 		when(mockPageGontext.getOut()).thenReturn(mockJspWriter);
 
-		locateTag.setVersionAgnostic(true);
-		locateTag.setPath("bootstrap/css/bootstrap.css");
+		locateTag.setWebjar("bootstrap");
+		locateTag.setPath("css/bootstrap.css");
 
 		verifyOutContains("/bootstrap/2.3.1/css/bootstrap.css");
 

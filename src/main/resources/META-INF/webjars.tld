@@ -52,9 +52,9 @@
 			<rtexprvalue>true</rtexprvalue>
 		</attribute>
 		<attribute>
-			<description>Whether version information should be automatically added by this tag. 
-Default is false.</description>
-			<name>versionAgnostic</name>
+			<description>The id of the WebJar to search. If specified the path must be the exact 
+path of the file within the WebJar.</description>
+			<name>webjar</name>
 			<required>false</required>
 			<rtexprvalue>true</rtexprvalue>
 		</attribute>
