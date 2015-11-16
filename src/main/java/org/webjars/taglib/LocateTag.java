@@ -136,16 +136,16 @@ public class LocateTag extends TagSupport {
 
 		if (path != null) {
 			if (versionAgnostic) {
-		        if (path.charAt(0) == '/') {
-		        	path = path.substring(1);
-		        }
+				if (path.charAt(0) == '/') {
+					path = path.substring(1);
+				}
 				int pos = path.indexOf("/");
 				result = Collections.singletonList(assetLocator.getFullPathExact(
 						path.substring(0, pos), path.substring(pos + 1)))
 						.iterator();
 			} else {
-			result = Collections
-					.singletonList(assetLocator.getFullPath(path)).iterator();
+				result = Collections
+						.singletonList(assetLocator.getFullPath(path)).iterator();
 			}
 		} else {
 			result = assetLocator.listAssets(prefix).iterator();
@@ -179,9 +179,9 @@ public class LocateTag extends TagSupport {
 		}
 	}
 
-    public boolean getVersionAgnostic() {
-        return versionAgnostic;
-    }
+	public boolean getVersionAgnostic() {
+		return versionAgnostic;
+	}
 
 	public boolean getOmitExtension() {
 		return omitExtension;
