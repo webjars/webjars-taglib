@@ -69,7 +69,7 @@ public class LocateTag extends TagSupport {
 
 	/**
 	 * The in-jar path prefix to chop off before advertising the result.
-	 * Defaults to {@value WebJarAssetLocator#WEBJARS_PATH_PREFIX}.
+	 * Defaults to {@value org.webjars.WebJarAssetLocator#WEBJARS_PATH_PREFIX}.
 	 */
 	private String relativeTo = WebJarAssetLocator.WEBJARS_PATH_PREFIX;
 
