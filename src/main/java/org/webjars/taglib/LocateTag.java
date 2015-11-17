@@ -1,10 +1,8 @@
 package org.webjars.taglib;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
-import java.util.List;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.PageContext;
@@ -37,6 +35,14 @@ public class LocateTag extends TagSupport {
 	 * Holds the result(s).
 	 */
 	private Iterator<String> result;
+
+	/**
+	 * The id of the WebJar to search. If specified the path must be the exact
+	 * path of the file within the WebJar.
+	 *
+	 * @since 0.3
+	 */
+	private String webjar;
 
 	/**
 	 * Whether to remove the resource extension before returning the result.
@@ -126,8 +132,14 @@ public class LocateTag extends TagSupport {
 		}
 
 		if (path != null) {
-			result = Collections
-					.singletonList(assetLocator.getFullPath(path)).iterator();
+			if (webjar != null) {
+				result = Collections
+						.singletonList(assetLocator.getFullPathExact(webjar, path))
+						.iterator();
+			} else {
+				result = Collections
+						.singletonList(assetLocator.getFullPath(path)).iterator();
+			}
 		} else {
 			result = assetLocator.listAssets(prefix).iterator();
 		}
@@ -160,6 +172,10 @@ public class LocateTag extends TagSupport {
 		}
 	}
 
+	public String getWebjar() {
+		return webjar;
+	}
+
 	public boolean getOmitExtension() {
 		return omitExtension;
 	}
@@ -186,6 +202,7 @@ public class LocateTag extends TagSupport {
 		this.prefix = null;
 		this.var = null;
 		this.relativeTo = WebJarAssetLocator.WEBJARS_PATH_PREFIX;
+		this.webjar = null;
 		this.omitExtension = false;
 		if (result.hasNext()) {
 			throw new IllegalStateException(
@@ -193,6 +210,10 @@ public class LocateTag extends TagSupport {
 							+ "' remains");
 		}
 		this.result = null;
+	}
+
+	public void setWebjar(String webjar) {
+		this.webjar = webjar;
 	}
 
 	public void setOmitExtension(boolean omitExtension) {

@@ -156,6 +156,21 @@ public class LocateTagTest {
 		verifyOutContains("/bootstrap/2.2.1/bootstrap");
 
 	}
+	
+	@Test
+	public void test_webjar() 
+			throws Exception {
+
+		when(mockAssetLocator.getFullPathExact("bootstrap" , "css/bootstrap.css")).thenReturn(
+				"META-INF/resources/webjars/bootstrap/2.3.1/css/bootstrap.css");
+		when(mockPageGontext.getOut()).thenReturn(mockJspWriter);
+
+		locateTag.setWebjar("bootstrap");
+		locateTag.setPath("css/bootstrap.css");
+
+		verifyOutContains("/bootstrap/2.3.1/css/bootstrap.css");
+
+	}
 
 	private void verifyOutContains(String expected) throws JspException,
 			IOException {

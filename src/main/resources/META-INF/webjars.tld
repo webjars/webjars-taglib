@@ -52,6 +52,13 @@
 			<rtexprvalue>true</rtexprvalue>
 		</attribute>
 		<attribute>
+			<description>The id of the WebJar to search. If specified the path must be the exact 
+path of the file within the WebJar.</description>
+			<name>webjar</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
 			<description>Whether to remove the resource extension before returning the result.
 Useful e.g. for require.js. Default is false.</description>
 			<name>omitExtension</name>
