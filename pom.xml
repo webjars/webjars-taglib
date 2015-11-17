@@ -11,7 +11,7 @@
 	<packaging>jar</packaging>
 	<groupId>org.webjars</groupId>
 	<artifactId>webjars-taglib</artifactId>
-	<version>0.3</version>
+	<version>0.4-SNAPSHOT</version>
 	<name>webjars-taglib</name>
 	<description>WebJar TagLib</description>
 	<url>http://webjars.org</url>
@@ -28,7 +28,7 @@
 		<url>http://github.com/webjars/webjars-taglib</url>
 		<connection>scm:git:https://github.com/webjars/webjars-taglib.git</connection>
 		<developerConnection>scm:git:https://github.com/webjars/webjars-taglib.git</developerConnection>
-		<tag>webjars-taglib-0.3</tag>
+		<tag>HEAD</tag>
 	</scm>
 
 	<developers>
