@@ -67,4 +67,4 @@ will output something like
 
 	/bootstrap/2.3.1/css/bootstrap.css
 
-Be sure to remove **ONLY** the version from the path, and to specifay the **EXACT** full path to the resource.
+Be sure to remove **ONLY** the version from the path, and to specify the **EXACT** full path to the resource.
